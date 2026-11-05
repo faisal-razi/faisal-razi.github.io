@@ -41,7 +41,7 @@ Faisal is an **architect** of learning platforms. The whole site uses one metaph
 
 ### GitHub Pages requirements (mandatory)
 
-1. Set `vite.config.js` → `base: '/<REPO_NAME>/'`. If the repo is named `<username>.github.io`, use `base: '/'`. Every asset path must work under this base: use `import.meta.env.BASE_URL` and never hard-code `/assets/...`.
+1. The repo is **`faisal-razi/faisal-razi.github.io`** (a GitHub organization user site), so set `vite.config.js` → `base: '/'`. Keep `base` configurable in case the site is ever moved to a project repo. Every asset path must work under this base: use `import.meta.env.BASE_URL` and never hard-code `/assets/...`.
 2. Add `.github/workflows/deploy.yml` using the official `actions/configure-pages`, `actions/upload-pages-artifact` and `actions/deploy-pages`. It should build on push to `main` with Node 22, then publish `dist/`.
 3. Add an empty **`public/.nojekyll`** file.
 4. Add **`public/404.html`**, a themed "Blueprint not found" page with a link home that respects the base path.
@@ -310,7 +310,7 @@ Do not invent clients, testimonials or numbers. If a section would need data tha
 ```
 /
 ├─ index.html
-├─ vite.config.js            # base: '/<REPO_NAME>/'
+├─ vite.config.js            # base: '/'
 ├─ public/
 │  ├─ .nojekyll
 │  ├─ 404.html
@@ -335,13 +335,13 @@ All personal text (bio, stats, timeline, certifications, links) lives in `profil
 
 1. Complete source code following the structure above.
 2. `npm run build` succeeds, and `npm run preview` works with the base path set.
-3. The GitHub Actions workflow deploys to `https://<username>.github.io/<REPO_NAME>/` with no broken asset paths, including on the 404 page.
+3. The GitHub Actions workflow deploys to `https://faisal-razi.github.io/` with no broken asset paths, including on the 404 page.
 4. Tested at 375px, 768px, 1280px and 1920px, in Chrome, Firefox and Safari, and with reduced motion on.
 5. README covers setup, how to add or edit a project, how to swap the résumé PDF, and how to connect a custom domain.
 
 ---
 
 ### Placeholders to replace
-`<REPO_NAME>` · `<username>` · `<CUSTOM_DOMAIN>` · GitHub profile URL · portrait photo · project screenshots
+`<CUSTOM_DOMAIN>` (or remove) · GitHub profile URL (personal account: https://github.com/faisalrazi30) · portrait photo · project screenshots
 
 > **Privacy note:** the résumé includes a phone number. On a public site, prefer email, LinkedIn and the contact form. Add a WhatsApp link only if you are comfortable with it being scraped.
