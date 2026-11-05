@@ -1,4 +1,4 @@
-# Build Prompt: "Blueprint → Build" Portfolio for Faisal Abbas Razi
+# Build Prompt: "Blueprint → Build" Portfolio for Faisal Razi
 
 > Paste everything below the line into your AI builder (Claude Code, v0, Cursor, Lovable, …).
 > Before pasting, fill in the **PROJECTS** block in section 6.
@@ -7,7 +7,7 @@
 
 ## 0. Role & Mission
 
-You are a senior creative front-end developer and motion designer. Build a **single-page, highly animated, award-quality personal portfolio** for **Faisal Abbas Razi, Moodle Architect & PHP Lead**. It must deploy as a **static site on GitHub Pages** with no server, no database and no secrets.
+You are a senior creative front-end developer and motion designer. Build a **single-page, highly animated, award-quality personal portfolio** for **Faisal Razi, Moodle Architect & PHP Lead**. It must deploy as a **static site on GitHub Pages** with no server, no database and no secrets.
 
 The site should feel like a craftsman's studio, not a template. Every animation must tell part of the story, and nothing should move only for decoration. A recruiter should understand who Faisal is within 5 seconds, and a fellow developer should still be finding small details after 5 minutes.
 
@@ -108,7 +108,7 @@ Faisal is an **architect** of learning platforms. The whole site uses one metaph
 
 ### 5.2 Hero: "I architect learning."
 - **Headline (SplitText, letters build from dashed outline → solid):**
-  `Faisal Abbas Razi`
+  `Faisal Razi`
 - **Rotating role line** (typewriter cycling):
   `Moodle Architect` → `PHP & Laravel Lead` → `LMS Plugin Engineer` → `Remote Tech Lead` → `Former CS Lecturer`
 - **Sub-line:** *"I design, build and scale Learning Management Systems trusted by institutions across Australia, the UK and Pakistan."*
@@ -305,7 +305,7 @@ Do not invent clients, testimonials or numbers. If a section would need data tha
 
 ## 9. SEO & Sharing
 
-- `<title>Faisal Abbas Razi — Moodle Architect & PHP Lead</title>`
+- `<title>Faisal Razi — Moodle Architect & PHP Lead</title>`
 - Meta description: *"Moodle architect and PHP lead with 7+ years building and scaling LMS platforms for institutions in Australia, the UK and Pakistan."*
 - Open Graph and Twitter cards with a **custom 1200×630 OG image** in the blueprint style (generated and committed to `public/og.png`).
 - JSON-LD `Person` schema (name, jobTitle, url, sameAs: LinkedIn, https://www.fiverr.com/faisalrazi30, GitHub; alumniOf; knowsAbout).
@@ -343,7 +343,7 @@ All personal text (bio, stats, timeline, certifications, links) lives in `profil
 
 1. Complete source code following the structure above.
 2. `npm run build` succeeds, and `npm run preview` works with the base path set.
-3. The GitHub Actions workflow deploys to `https://faisal-razi.github.io/` with no broken asset paths, including on the 404 page.
+3. The GitHub Actions workflow deploys to `https://faisalrazi.runs-on.dev/` (custom domain via `public/CNAME`) with no broken asset paths, including on the 404 page.
 4. Tested at 375px, 768px, 1280px and 1920px, in Chrome, Firefox and Safari, and with reduced motion on.
 5. README covers setup, how to add or edit a project, how to swap the résumé PDF, and how to connect a custom domain.
 
