@@ -43,6 +43,13 @@ export function reveals({ gsap, SplitText, ScrollTrigger, motion }) {
     t.addEventListener('pointerleave', () => tw.play());
   }
 
+  // Google Cloud badge filter (works without motion)
+  const cbtns = [...document.querySelectorAll('.cf')];
+  cbtns.forEach((b) => b.addEventListener('click', () => {
+    cbtns.forEach((x) => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+    document.querySelectorAll('.gbadge').forEach((g) => g.classList.toggle('is-dim', b.dataset.show !== 'all' && g.dataset.kind !== b.dataset.show));
+  }));
+
   if (!motion) return;
 
   // eyebrow typing
@@ -81,6 +88,12 @@ export function reveals({ gsap, SplitText, ScrollTrigger, motion }) {
       scrollTrigger: { trigger: s, start: 'top 90%' },
       onComplete: () => gsap.fromTo(s, { x: -2 }, { x: 0, duration: 0.25, ease: 'elastic.out(3, 0.3)' }),
     });
+  });
+
+  // badges are dealt onto the board like cards, then pinned with tape
+  gsap.fromTo('.gbadge', { y: -70, opacity: 0, rotation: (i) => (i % 2 ? 14 : -14) }, {
+    y: 0, opacity: 1, rotation: (i, el) => el.style.getPropertyValue('--t') || 0, duration: 0.75, ease: 'expo.out', stagger: 0.06,
+    scrollTrigger: { trigger: '.cloud__board', start: 'top 80%' }, clearProps: 'transform,opacity',
   });
 
   // plugin stack: bricks drop in and settle

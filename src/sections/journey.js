@@ -4,7 +4,17 @@ export function journey({ gsap, ScrollTrigger, motion }) {
   const svg = document.querySelector('.metro');
   if (!svg) return;
   const stations = [...svg.querySelectorAll('.station')];
-  const stops = [...document.querySelectorAll('.stop')];
+  // cards are grouped (experience / education), so match them to stations by data-i
+  const stops = [];
+  document.querySelectorAll('.stop').forEach((c) => (stops[+c.dataset.i] = c));
+
+  // filter: All · Experience · Education — dims the other kind on the map and in the lists
+  const fbtns = [...document.querySelectorAll('.jf')];
+  fbtns.forEach((b) => b.addEventListener('click', () => {
+    const show = b.dataset.show;
+    fbtns.forEach((x) => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+    [...stations, ...stops.filter(Boolean)].forEach((el) => el.classList.toggle('is-dim', show !== 'all' && el.dataset.kind !== show));
+  }));
 
   const light = (i, on) => {
     stations[i]?.classList.toggle('is-on', on);
@@ -19,6 +29,7 @@ export function journey({ gsap, ScrollTrigger, motion }) {
     s.addEventListener('keydown', (e) => e.key === 'Enter' && s.dispatchEvent(new Event('click')));
   });
   stops.forEach((c, i) => {
+    if (!c) return;
     c.addEventListener('pointerenter', () => light(i, true));
     c.addEventListener('pointerleave', () => light(i, false));
   });
@@ -47,5 +58,5 @@ export function journey({ gsap, ScrollTrigger, motion }) {
   ScrollTrigger.create({ trigger: '.metro__scroller', start: 'top 60%', once: true, onEnter: () => gsap.to(plane, { opacity: 1 }) });
   placePlane(0);
 
-  gsap.from(stops, { y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', stagger: 0.05, scrollTrigger: { trigger: '.stops', start: 'top 85%' } });
+  gsap.from('.stop', { y: 30, opacity: 0, duration: 0.8, ease: 'expo.out', stagger: 0.05, clearProps: 'opacity,transform', scrollTrigger: { trigger: '.journey__cols', start: 'top 85%' } });
 }

@@ -172,20 +172,32 @@ export function journey(profile) {
   const stations = profile.journey
     .map((j, i) => {
       const x = X(j.from), y = ys[j.track];
-      return `<g class="station" data-i="${i}" transform="translate(${x},${y})" tabindex="0" role="button" aria-label="${esc(j.from)}: ${esc(j.role)} at ${esc(j.org)}"><circle r="11" class="station__ring"/><circle r="4.5" class="station__dot"/></g>`;
+      return `<g class="station" data-i="${i}" data-kind="${j.track === 'learn' ? 'edu' : 'work'}" transform="translate(${x},${y})" tabindex="0" role="button" aria-label="${esc(j.from)}: ${esc(j.role)} at ${esc(j.org)}"><circle r="11" class="station__ring"/><circle r="4.5" class="station__dot"/></g>`;
     })
     .join('');
   // the long-haul arc: Vehari (build line 2018) to Sydney (lms line 2018)
   const ax = X(2018), ex = X(2020), arc = `M${ax} ${ys.build} C ${ax + 30} ${ys.build - 230}, ${ex - 40} ${ys.build - 260}, ${ex} ${ys.lms}`;
   const yearTicks = years.map((y) => `<g transform="translate(${X(y)},372)"><path d="M0 -6V0" class="metro__tick"/><text y="20" text-anchor="middle">${y === 2026 ? 'now' : y}</text></g>`).join('');
-  const cards = profile.journey
-    .map(
-      (j, i) => `<li class="stop" data-i="${i}" data-track="${j.track}">
-      <p class="stop__when">${j.from}${j.to !== j.from ? `–${j.to === 2026 ? 'now' : j.to}` : ''} · ${esc(j.city)}${j.remote ? ' · remote' : ''}</p>
+  const kindOf = (j) => (j.track === 'learn' ? 'edu' : 'work');
+  const label = { edu: 'EDUCATION', work: 'EXPERIENCE' };
+  const card = (j, i) => `<li class="stop stop--${kindOf(j)}" data-i="${i}" data-track="${j.track}" data-kind="${kindOf(j)}">
+      <p class="stop__kind"><span class="stop__icon" aria-hidden="true">${kindOf(j) === 'edu' ? '🎓' : '▣'}</span>${label[kindOf(j)]}${j.track === 'teach' ? ' · TEACHING' : ''}</p>
+      <p class="stop__when">${j.from}${j.to !== j.from ? `–${j.to === 2026 ? 'now' : j.to}` : ''} · ${esc(j.city)}${j.remote && !/remote/i.test(j.city) ? ' · remote' : ''}</p>
       <h3 class="stop__org">${esc(j.org)}</h3><p class="stop__role">${esc(j.role)}</p>
-      <ul>${j.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul></li>`
-    )
-    .join('');
+      <ul>${j.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul></li>`;
+  const indexed = profile.journey.map((j, i) => [j, i]);
+  const work = indexed.filter(([j]) => kindOf(j) === 'work').sort((a, b) => b[0].from - a[0].from || b[0].to - a[0].to);
+  const edu = indexed.filter(([j]) => kindOf(j) === 'edu').sort((a, b) => b[0].from - a[0].from);
+  const cards = `
+    <div class="journey__filter" role="group" aria-label="Show on the map">
+      <button type="button" class="jf is-on" data-show="all" aria-pressed="true">All</button>
+      <button type="button" class="jf" data-show="work" aria-pressed="false">▣ Experience <b>${work.length}</b></button>
+      <button type="button" class="jf" data-show="edu" aria-pressed="false">🎓 Education <b>${edu.length}</b></button>
+    </div>
+    <div class="journey__cols">
+      <section class="jcol jcol--work"><h3 class="jcol__title"><span>01</span>Experience</h3><ol class="stops">${work.map(([j, i]) => card(j, i)).join('')}</ol></section>
+      <section class="jcol jcol--edu"><h3 class="jcol__title"><span>02</span>Education</h3><ol class="stops">${edu.map(([j, i]) => card(j, i)).join('')}</ol></section>
+    </div>`;
   return `
   <div class="metro__scroller"><svg class="metro" viewBox="0 0 1560 400" role="img" aria-label="Career timeline from 2015 to now drawn as a metro map">
     <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" class="metro__dotgrid"/></pattern></defs>
@@ -196,7 +208,7 @@ export function journey(profile) {
     <g class="plane" aria-hidden="true"><path d="M-12 -8 L14 0 L-12 8 L-6 0 Z"/></g>
     ${stations}${yearTicks}
   </svg></div>
-  <ol class="stops">${cards}</ol>`;
+  ${cards}`;
 }
 
 /* ---------------- SKILLS ---------------- */
@@ -273,6 +285,20 @@ export function jsonLd(profile, reviews) {
   // No aggregateRating: Google treats ratings a person publishes about themselves as
   // self-serving review markup, so the Fiverr rating stays visible text only.
   return JSON.stringify(ld);
+}
+
+/* ---------------- GOOGLE CLOUD BADGES ---------------- */
+export function cloudBadges(cloud, base) {
+  return cloud.badges
+    .map(
+      (b, i) => `<li class="gbadge${b.kind === 'Skill badge' ? ' gbadge--skill' : ''}" style="--t:${[-3, 2, -1.5, 3, -2.5, 1.5][i % 6]}deg" data-kind="${b.kind === 'Skill badge' ? 'skill' : 'completion'}">
+      <a href="${esc(b.url)}" target="_blank" rel="noopener" aria-label="${esc(b.title)} — ${esc(b.kind)}, ${esc(b.date)} (opens Google Skills)">
+        <span class="gbadge__tape" aria-hidden="true"></span>
+        <img src="${base}${b.img}" alt="" width="220" height="220" loading="lazy" decoding="async">
+        <span class="gbadge__meta"><em>${esc(b.kind)}${b.level ? ' · ' + esc(b.level) : ''}</em><b>${esc(b.title)}</b><i>${esc(b.date)}</i></span>
+      </a></li>`
+    )
+    .join('');
 }
 
 export { esc };

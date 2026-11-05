@@ -122,7 +122,7 @@
     <section class="wall" id="clients" data-section="03 — CLIENTS">
       <header class="section-head section-head--center">
         <p class="eyebrow" data-type>// 03 — INSTITUTIONS I'VE BUILT FOR</p>
-        <h2 class="h2" data-split>Sixteen logos. One craftsman.</h2>
+        <h2 class="h2" data-split>Sixteen institutions. Four continents. One drafting table.</h2>
       </header>
       <div class="wall__rows"><!--@wall--></div>
       <p class="wall__counter"><!--@wallCounter--></p>
@@ -143,8 +143,8 @@
     <section class="journey" id="journey" data-section="04 — JOURNEY">
       <header class="section-head">
         <p class="eyebrow" data-type>// 04 — THE ROUTE MAP</p>
-        <h2 class="h2" data-split>From a Vehari classroom to Sydney's RTOs.</h2>
-        <p class="lede">Four lines, eleven years. Overlapping roles run as parallel tracks. Hover or tap a station.</p>
+        <h2 class="h2" data-split>Every role a station. Every lesson a transfer.</h2>
+        <p class="lede">Eleven years on four lines, from a Vehari classroom to Sydney's training organisations. Experience and education are filed separately below; hover or tap a station.</p>
       </header>
       <!--@journey-->
     </section>
@@ -199,6 +199,18 @@
       <div class="certs">
         <p class="eyebrow">// 07 — STAMPED &amp; VERIFIED</p>
         <ul class="certs__grid"><!--@certs--></ul>
+      </div>
+      <div class="cloud" id="cloud">
+        <header class="cloud__head">
+          <div><p class="eyebrow">// 07B — GOOGLE CLOUD SKILLS</p>
+            <h3 class="cloud__title">%%cloudTotal%% badges earned on Google Skills, pinned to the board.</h3>
+            <p class="cloud__sum"><b>%%cloudSkill%%</b> hands-on skill badges · gen-AI, Gemini, BigQuery, speech &amp; language APIs · learning there since %%cloudSince%%</p></div>
+          <div class="cloud__actions">
+            <div class="cloud__filter" role="group" aria-label="Filter badges"><button type="button" class="cf is-on" data-show="all" aria-pressed="true">All</button><button type="button" class="cf" data-show="skill" aria-pressed="false">Skill badges</button><button type="button" class="cf" data-show="completion" aria-pressed="false">Completion</button></div>
+            <a class="btn btn--ghost magnetic" href="%%cloudProfile%%" target="_blank" rel="noopener">All %%cloudTotal%% on Google Skills ↗</a>
+          </div>
+        </header>
+        <ul class="cloud__board"><!--@cloudBadges--></ul>
       </div>
     </section>
 

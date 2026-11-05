@@ -1,0 +1,100 @@
+{
+  "profile": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a",
+  "total": 20,
+  "memberSince": "2020",
+  "badges": [
+    {
+      "title": "Analyze Speech and Language with Google APIs",
+      "date": "Feb 2025",
+      "year": 2025,
+      "img": "img/badges/analyze-speech-and-language-with-google-apis.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13968612",
+      "kind": "Skill badge",
+      "level": "Introductory"
+    },
+    {
+      "title": "Monitor and Manage Google Cloud Resources",
+      "date": "Feb 2025",
+      "year": 2025,
+      "img": "img/badges/monitor-and-manage-google-cloud-resources.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13968529",
+      "kind": "Skill badge",
+      "level": "Introductory"
+    },
+    {
+      "title": "The Basics of Google Cloud Compute",
+      "date": "Feb 2025",
+      "year": 2025,
+      "img": "img/badges/the-basics-of-google-cloud-compute.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13958630",
+      "kind": "Skill badge",
+      "level": "Introductory"
+    },
+    {
+      "title": "Build a Data Warehouse with BigQuery",
+      "date": "May 2022",
+      "year": 2022,
+      "img": "img/badges/build-a-data-warehouse-with-bigquery.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/2093082",
+      "kind": "Skill badge",
+      "level": "Introductory"
+    },
+    {
+      "title": "Automate Interactions with Contact Center AI",
+      "date": "Oct 2020",
+      "year": 2020,
+      "img": "img/badges/automate-interactions-with-contact-center-ai.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/446729",
+      "kind": "Skill badge",
+      "level": "Intermediate"
+    },
+    {
+      "title": "Baseline: Data, ML, AI",
+      "date": "Feb 2025",
+      "year": 2025,
+      "img": "img/badges/baseline-data-ml-ai.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13978406",
+      "kind": "Completion badge"
+    },
+    {
+      "title": "Integrate Applications with Gemini on Google Cloud",
+      "date": "Feb 2025",
+      "year": 2025,
+      "img": "img/badges/integrate-applications-with-gemini-on-google-clo.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13822043",
+      "kind": "Completion badge"
+    },
+    {
+      "title": "Generative AI Explorer - Agent Platform",
+      "date": "Jan 2025",
+      "year": 2025,
+      "img": "img/badges/generative-ai-explorer-agent-platform.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/13685343",
+      "kind": "Completion badge"
+    },
+    {
+      "title": "Intro to ML: Language Processing",
+      "date": "Oct 2020",
+      "year": 2020,
+      "img": "img/badges/intro-to-ml-language-processing.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/412885",
+      "kind": "Completion badge"
+    },
+    {
+      "title": "Intro to ML: Image Processing",
+      "date": "Oct 2020",
+      "year": 2020,
+      "img": "img/badges/intro-to-ml-image-processing.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/412809",
+      "kind": "Completion badge"
+    },
+    {
+      "title": "Google Cloud Essentials",
+      "date": "Jul 2020",
+      "year": 2020,
+      "img": "img/badges/google-cloud-essentials.webp",
+      "url": "https://www.skills.google/public_profiles/c7f4aff9-2d10-4fab-be5e-107d45543c8a/badges/292514",
+      "kind": "Completion badge"
+    }
+  ]
+}

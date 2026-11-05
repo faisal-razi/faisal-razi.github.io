@@ -14,6 +14,7 @@ function renderData() {
       const profile = load('profile.json');
       const projects = load('projects.json');
       const reviews = load('reviews.json');
+      const cloud = load('cloud.json');
       const sum = T.reviewSummary(reviews);
       const slots = {
         stats: T.stats(profile),
@@ -27,6 +28,11 @@ function renderData() {
         moodleStack: T.moodleStack(profile),
         ticker: T.ticker(profile),
         certs: T.certs(profile),
+        cloudBadges: T.cloudBadges(cloud, base),
+        cloudTotal: String(cloud.total),
+        cloudSkill: String(cloud.badges.filter((b) => b.kind === 'Skill badge').length),
+        cloudProfile: cloud.profile,
+        cloudSince: cloud.memberSince,
         reviewCards: T.reviewCards(reviews),
         reviewCountries: T.reviewCountries(reviews),
         reviewData: T.reviewData(reviews),
