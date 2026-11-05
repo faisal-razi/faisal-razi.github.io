@@ -97,5 +97,5 @@ console.log(
   ╠╣ ╠╦╝   This sheet was drafted in Vite + GSAP + Three.js.
   ╚  ╩╚═   faisalrazi30@gmail.com
 `,
-  'color:#7CF5FF;font-family:monospace;font-size:12px'
+  'color:#FF8F66;font-family:monospace;font-size:12px'
 );

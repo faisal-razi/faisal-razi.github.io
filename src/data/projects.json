@@ -1,5 +1,58 @@
 [
   {
+    "id": "royal-lifestyle",
+    "title": "Royal Lifestyle — 3D Tower Explorer",
+    "short": "Royal Lifestyle",
+    "url": "https://chaargroup.com/royal-lifestyle",
+    "logo": "img/logos/royal-lifestyle.webp",
+    "logoBg": "dark",
+    "cover": "img/projects/royal-lifestyle-cover.webp",
+    "gallery": [
+      "img/projects/royal-lifestyle-cover.webp",
+      "img/projects/royal-lifestyle-splats.webp",
+      "img/projects/royal-lifestyle-title.webp"
+    ],
+    "country": "Cyprus",
+    "sector": "Real estate · 3D sales portal",
+    "about": "A 3D building explorer for Chaar Group's 36-residence resort in Larnaca: rotate the tower, click any residence, walk it in 360°, and reserve it.",
+    "category": [
+      "Full-stack",
+      "3D / WebGL"
+    ],
+    "role": "Full-stack developer",
+    "year": "2026",
+    "stack": [
+      "Laravel 11",
+      "Filament",
+      "React",
+      "three.js",
+      "Gaussian splats",
+      "Photo Sphere Viewer",
+      "Stripe"
+    ],
+    "work": [
+      "Interactive 3D tower with 133 per-unit hotspots across 8 angles; each residence opens its own 360° interior tour.",
+      "Live-geometry mode: the same building orbited on a textured 4K drone capture of the real site.",
+      "Gaussian-splat pipeline tuned to a budget: 5.7M → 250,000 splats, 372 MB → 16.2 MB (23× lighter).",
+      "Filament admin to publish turntables, panoramas, floor plans and pricing, with a launch checklist for silent failures.",
+      "QR code on every residence, and Stripe deposits that hold a unit for 14 days."
+    ],
+    "metrics": [
+      "36 residences",
+      "133 hotspots · 8 angles",
+      "372 MB → 16.2 MB"
+    ],
+    "flow": [
+      "Buyer",
+      "3D tower",
+      "Unit hotspot",
+      "360° tour",
+      "Stripe deposit"
+    ],
+    "featured": true,
+    "todo": false
+  },
+  {
     "id": "ahmi",
     "title": "Australian Health and Management Institute",
     "short": "AHMI",

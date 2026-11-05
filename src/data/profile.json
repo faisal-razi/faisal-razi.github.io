@@ -2,7 +2,13 @@
   "name": "Faisal Razi",
   "short": "Faisal Razi",
   "title": "Moodle Architect & PHP Lead",
-  "roles": ["Moodle Architect", "PHP & Laravel Lead", "LMS Plugin Engineer", "Remote Tech Lead", "Former CS Lecturer"],
+  "roles": [
+    "Moodle Architect",
+    "PHP & Laravel Lead",
+    "LMS Plugin Engineer",
+    "Remote Tech Lead",
+    "Former CS Lecturer"
+  ],
   "tagline": "I design, build and scale Learning Management Systems trusted by institutions across Australia, the UK and Pakistan.",
   "location": "Islamabad, PK",
   "timezone": "Asia/Karachi",
@@ -16,46 +22,276 @@
     "github": "https://github.com/faisalrazi30",
     "site": "https://faisalrazi.runs-on.dev/"
   },
-  "contact": { "web3formsKey": "a9764922-3766-4dd5-bd13-e7828327cd4d" },
+  "contact": {
+    "web3formsKey": "a9764922-3766-4dd5-bd13-e7828327cd4d"
+  },
   "stats": [
-    { "value": 7, "suffix": "+", "label": "years building on the web" },
-    { "value": 40, "suffix": "%", "label": "faster support resolution at Theos Seminary" },
-    { "value": 60, "suffix": "%", "label": "less manual admin via enrolment automation" },
-    { "value": 99.5, "suffix": "%+", "decimals": 1, "label": "LMS uptime maintained" },
-    { "value": 150, "suffix": "+", "label": "students mentored as Lab Engineer" },
-    { "value": 4, "suffix": "", "label": "live platforms security-hardened" }
+    {
+      "value": 7,
+      "suffix": "+",
+      "label": "years building on the web"
+    },
+    {
+      "value": 40,
+      "suffix": "%",
+      "label": "faster support resolution at Theos Seminary"
+    },
+    {
+      "value": 60,
+      "suffix": "%",
+      "label": "less manual admin via enrolment automation"
+    },
+    {
+      "value": 99.5,
+      "suffix": "%+",
+      "decimals": 1,
+      "label": "LMS uptime maintained"
+    },
+    {
+      "value": 150,
+      "suffix": "+",
+      "label": "students mentored as Lab Engineer"
+    },
+    {
+      "value": 4,
+      "suffix": "",
+      "label": "live platforms security-hardened"
+    }
   ],
   "journey": [
-    { "track": "learn", "from": 2015, "to": 2015, "org": "BZU Multan", "role": "B.Sc. Math & Physics", "city": "Multan", "notes": ["Mathematics & Physics foundations"] },
-    { "track": "teach", "from": 2016, "to": 2018, "org": "Superior College, Vehari", "role": "Visiting Lecturer — CS", "city": "Vehari", "notes": ["Taught programming and web technologies to cohorts of 40–60", "Wrote course material and exams to Punjab HEC standards"] },
-    { "track": "learn", "from": 2017, "to": 2017, "org": "University of Agriculture, Faisalabad", "role": "M.S. Computer Science · CGPA 3.87/4.00", "city": "Faisalabad", "notes": ["Research interests: Data Mining, ML, NLP"] },
-    { "track": "build", "from": 2018, "to": 2019, "org": "ZpZen Technologies", "role": "Senior Web Developer & Tech Lead", "city": "Vehari", "notes": ["Led a 5-person team", "Shipped findcut.com, solemole.com, vosshop.uk, move2canada.info", "OAuth 2.0 REST APIs in Yii2 for iOS, Android and Windows clients"] },
-    { "track": "lms", "from": 2018, "to": 2020, "org": "NASMAK Pty Ltd", "role": "Technical Lead — Web & LMS", "city": "Sydney", "remote": true, "notes": ["Led a remote team delivering Moodle for Australian RTOs", "Built the USI API compliance integration", "Hardened 4 live platforms after security audits"] },
-    { "track": "teach", "from": 2019, "to": 2021, "org": "COMSATS University, Vehari", "role": "Lab Engineer", "city": "Vehari", "notes": ["Lab sessions for 150+ undergraduates", "Web Engineering, Programming Fundamentals, Databases"] },
-    { "track": "build", "from": 2019, "to": 2026, "org": "Fiverr", "role": "Freelance Moodle / PHP consultant", "city": "Worldwide", "remote": true, "notes": ["47 reviews · 5.0★", "Clients in 16 countries"] },
-    { "track": "lms", "from": 2022, "to": 2026, "org": "Theos Seminary", "role": "Technical Support Manager", "city": "Remote", "remote": true, "notes": ["−40% ticket resolution time", "−60% manual admin", ">99.5% uptime"] },
-    { "track": "lms", "from": 2022, "to": 2026, "org": "SkillWare4u", "role": "Technical Consultant — LMS & PHP", "city": "Remote", "remote": true, "notes": ["LMS architecture & plugin strategy", "Technical audits and security roadmaps"] }
+    {
+      "track": "learn",
+      "from": 2015,
+      "to": 2015,
+      "org": "BZU Multan",
+      "role": "B.Sc. Math & Physics",
+      "city": "Multan",
+      "notes": [
+        "Mathematics & Physics foundations"
+      ]
+    },
+    {
+      "track": "teach",
+      "from": 2016,
+      "to": 2018,
+      "org": "Superior College, Vehari",
+      "role": "Visiting Lecturer — CS",
+      "city": "Vehari",
+      "notes": [
+        "Taught programming and web technologies to cohorts of 40–60",
+        "Wrote course material and exams to Punjab HEC standards"
+      ]
+    },
+    {
+      "track": "learn",
+      "from": 2017,
+      "to": 2017,
+      "org": "University of Agriculture, Faisalabad",
+      "role": "M.S. Computer Science · CGPA 3.87/4.00",
+      "city": "Faisalabad",
+      "notes": [
+        "Research interests: Data Mining, ML, NLP"
+      ]
+    },
+    {
+      "track": "build",
+      "from": 2018,
+      "to": 2019,
+      "org": "ZpZen Technologies",
+      "role": "Senior Web Developer & Tech Lead",
+      "city": "Vehari",
+      "notes": [
+        "Led a 5-person team",
+        "Shipped findcut.com, solemole.com, vosshop.uk, move2canada.info",
+        "OAuth 2.0 REST APIs in Yii2 for iOS, Android and Windows clients"
+      ]
+    },
+    {
+      "track": "lms",
+      "from": 2018,
+      "to": 2020,
+      "org": "NASMAK Pty Ltd",
+      "role": "Technical Lead — Web & LMS",
+      "city": "Sydney",
+      "remote": true,
+      "notes": [
+        "Led a remote team delivering Moodle for Australian RTOs",
+        "Built the USI API compliance integration",
+        "Hardened 4 live platforms after security audits"
+      ]
+    },
+    {
+      "track": "teach",
+      "from": 2019,
+      "to": 2021,
+      "org": "COMSATS University, Vehari",
+      "role": "Lab Engineer",
+      "city": "Vehari",
+      "notes": [
+        "Lab sessions for 150+ undergraduates",
+        "Web Engineering, Programming Fundamentals, Databases"
+      ]
+    },
+    {
+      "track": "build",
+      "from": 2019,
+      "to": 2026,
+      "org": "Fiverr",
+      "role": "Freelance Moodle / PHP consultant",
+      "city": "Worldwide",
+      "remote": true,
+      "notes": [
+        "47 reviews · 5.0★",
+        "Clients in 16 countries"
+      ]
+    },
+    {
+      "track": "lms",
+      "from": 2022,
+      "to": 2026,
+      "org": "Theos Seminary",
+      "role": "Technical Support Manager",
+      "city": "Remote",
+      "remote": true,
+      "notes": [
+        "−40% ticket resolution time",
+        "−60% manual admin",
+        ">99.5% uptime"
+      ]
+    },
+    {
+      "track": "lms",
+      "from": 2022,
+      "to": 2026,
+      "org": "SkillWare4u",
+      "role": "Technical Consultant — LMS & PHP",
+      "city": "Remote",
+      "remote": true,
+      "notes": [
+        "LMS architecture & plugin strategy",
+        "Technical audits and security roadmaps"
+      ]
+    }
   ],
   "skills": {
-    "Moodle": ["Plugins & Blocks", "Themes", "SCORM", "H5P", "USI API", "Multi-Tenant", "Enrolment & Roles", "Performance"],
-    "PHP Frameworks": ["PHP", "Laravel", "Yii2", "CodeIgniter", "WordPress"],
-    "Data": ["MySQL", "PostgreSQL", "Database Design", "DynamoDB"],
-    "APIs": ["REST", "OAuth 2.0", "Stripe", "Webhooks"],
-    "Front-end": ["JavaScript", "jQuery", "Angular", "AJAX", "Bootstrap"],
-    "Cloud & DevOps": ["Git", "Google Cloud", "AWS", "Linux", "Python / FastAPI"]
+    "Moodle": [
+      "Plugins & Blocks",
+      "Themes",
+      "SCORM",
+      "H5P",
+      "USI API",
+      "Multi-Tenant",
+      "Enrolment & Roles",
+      "Performance"
+    ],
+    "PHP Frameworks": [
+      "PHP",
+      "Laravel",
+      "Filament",
+      "Yii2",
+      "CodeIgniter",
+      "WordPress"
+    ],
+    "Data": [
+      "MySQL",
+      "PostgreSQL",
+      "Database Design",
+      "DynamoDB"
+    ],
+    "APIs": [
+      "REST",
+      "OAuth 2.0",
+      "Stripe",
+      "Webhooks"
+    ],
+    "Front-end": [
+      "three.js / WebGL",
+      "React",
+      "JavaScript",
+      "jQuery",
+      "Angular",
+      "AJAX",
+      "Bootstrap"
+    ],
+    "Cloud & DevOps": [
+      "Git",
+      "Google Cloud",
+      "AWS",
+      "Linux",
+      "Python / FastAPI"
+    ]
   },
-  "moodleStack": ["Plugin & Block Development", "Theme Customization", "SCORM · H5P Integration", "USI API Integration", "LMS Performance Tuning", "Multi-Tenant Deployments", "User Enrolment & Roles"],
-  "certifications": [
-    { "name": "Google Analytics IQ", "by": "Google", "year": "2019" },
-    { "name": "Google Cloud Seekho S2", "by": "Google", "year": "2020" },
-    { "name": "Google Cloud Essentials", "by": "Google Cloud", "year": "" },
-    { "name": "Machine Learning", "by": "Coursera · Univ. of Washington", "year": "" },
-    { "name": "Digital Marketing", "by": "DigiSkills · MoITT", "year": "2018" },
-    { "name": "WordPress Development", "by": "DigiSkills", "year": "2019" },
-    { "name": "E-Commerce Management", "by": "DigiSkills", "year": "2019" },
-    { "name": "Facebook SMBS", "by": "Facebook Business", "year": "2018" },
-    { "name": "E-Rozgaar Technical", "by": "PITB", "year": "2018" }
+  "moodleStack": [
+    "Plugin & Block Development",
+    "Theme Customization",
+    "SCORM · H5P Integration",
+    "USI API Integration",
+    "LMS Performance Tuning",
+    "Multi-Tenant Deployments",
+    "User Enrolment & Roles"
   ],
-  "currently": { "building": "Moodle platforms for Theos Seminary & SkillWare4u clients", "shipping": "Sehatti — wellbeing intelligence platform", "exploring": "Data Mining · ML · NLP" },
-  "languages": [{ "name": "English", "level": "Professional", "pct": 80 }, { "name": "Urdu", "level": "Native", "pct": 100 }]
+  "certifications": [
+    {
+      "name": "Google Analytics IQ",
+      "by": "Google",
+      "year": "2019"
+    },
+    {
+      "name": "Google Cloud Seekho S2",
+      "by": "Google",
+      "year": "2020"
+    },
+    {
+      "name": "Google Cloud Essentials",
+      "by": "Google Cloud",
+      "year": ""
+    },
+    {
+      "name": "Machine Learning",
+      "by": "Coursera · Univ. of Washington",
+      "year": ""
+    },
+    {
+      "name": "Digital Marketing",
+      "by": "DigiSkills · MoITT",
+      "year": "2018"
+    },
+    {
+      "name": "WordPress Development",
+      "by": "DigiSkills",
+      "year": "2019"
+    },
+    {
+      "name": "E-Commerce Management",
+      "by": "DigiSkills",
+      "year": "2019"
+    },
+    {
+      "name": "Facebook SMBS",
+      "by": "Facebook Business",
+      "year": "2018"
+    },
+    {
+      "name": "E-Rozgaar Technical",
+      "by": "PITB",
+      "year": "2018"
+    }
+  ],
+  "currently": {
+    "building": "Moodle platforms for Theos Seminary & SkillWare4u clients",
+    "shipping": "Sehatti — wellbeing intelligence platform",
+    "exploring": "Data Mining · ML · NLP"
+  },
+  "languages": [
+    {
+      "name": "English",
+      "level": "Professional",
+      "pct": 80
+    },
+    {
+      "name": "Urdu",
+      "level": "Native",
+      "pct": 100
+    }
+  ]
 }

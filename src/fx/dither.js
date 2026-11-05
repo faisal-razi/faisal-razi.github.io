@@ -14,9 +14,9 @@ export function dither({ gsap }) {
     t.drawImage(img, 0, 0, w, h);
     const px = t.getImageData(0, 0, w, h).data;
     const g = cv.getContext('2d');
-    g.fillStyle = '#0b1d33';
+    g.fillStyle = '#14110F';
     g.fillRect(0, 0, cv.width, cv.height);
-    g.fillStyle = '#7cf5ff';
+    g.fillStyle = '#FF8F66';
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       const i = (y * w + x) * 4;
       const lum = (px[i] * 0.3 + px[i + 1] * 0.59 + px[i + 2] * 0.11) / 255;

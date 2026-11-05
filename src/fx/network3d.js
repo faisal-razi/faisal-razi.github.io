@@ -51,7 +51,7 @@ export function network3d(canvas, { gsap, ScrollTrigger }) {
   const sizes = new Float32Array(N).map((_, i) => (i < HUBS ? 7 : rnd(2, 4)));
   geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-  const colorA = new THREE.Color('#7CF5FF'), colorB = new THREE.Color('#FFB547');
+  const colorA = new THREE.Color('#FF8F66'), colorB = new THREE.Color('#D9A441');
   const pmat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     uniforms: { uColor: { value: colorA.clone() }, uHub: { value: colorB }, uPR: { value: renderer.getPixelRatio() }, uAlpha: { value: 1 } },
@@ -79,7 +79,7 @@ export function network3d(canvas, { gsap, ScrollTrigger }) {
   const lpos = new Float32Array(pairs.length * 3);
   const lgeo = new THREE.BufferGeometry();
   lgeo.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
-  const lmat = new THREE.LineBasicMaterial({ color: '#2BB3C0', transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false });
+  const lmat = new THREE.LineBasicMaterial({ color: '#E2552D', transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false });
   const lines = new THREE.LineSegments(lgeo, lmat);
 
   const group = new THREE.Group();
@@ -89,9 +89,9 @@ export function network3d(canvas, { gsap, ScrollTrigger }) {
   // light theme: darker ink
   const theme = () => {
     const light = document.documentElement.dataset.theme === 'light';
-    pmat.uniforms.uColor.value.set(light ? '#137F8A' : '#7CF5FF');
+    pmat.uniforms.uColor.value.set(light ? '#B8401F' : '#FF8F66');
     pmat.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
-    lmat.color.set(light ? '#137F8A' : '#2BB3C0');
+    lmat.color.set(light ? '#B8401F' : '#E2552D');
     lmat.blending = pmat.blending;
     lmat.opacity = light ? 0.22 : 0.18;
     pmat.needsUpdate = lmat.needsUpdate = true;

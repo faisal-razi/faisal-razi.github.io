@@ -10,7 +10,7 @@ const clean = (arr = []) => arr.filter((v) => !isTodo(v));
 export const CC = {
   'United Kingdom': 'GB', 'United States': 'US', Ireland: 'IE', Canada: 'CA', Spain: 'ES', Cyprus: 'CY',
   'South Africa': 'ZA', Pakistan: 'PK', 'Sri Lanka': 'LK', Ghana: 'GH', Germany: 'DE', Australia: 'AU',
-  India: 'IN', Qatar: 'QA', Philippines: 'PH', Netherlands: 'NL', France: 'FR', UAE: 'AE', USA: 'US',
+  India: 'IN', Qatar: 'QA', Cyprus: 'CY', Philippines: 'PH', Netherlands: 'NL', France: 'FR', UAE: 'AE', USA: 'US',
   International: 'INTL', 'International (London HQ)': 'GB',
 };
 
@@ -51,9 +51,10 @@ export function work(projects, base) {
           <span class="wire-anno">← ${420 + i * 12}px →</span>
         </div>
         <div class="card__built">
-          <div class="card__cover" data-bg="${p.logoBg}">
+          <div class="card__cover${p.cover ? ' card__cover--shot' : ''}" data-bg="${p.logoBg}">
+            ${p.cover ? `<img class="card__shot" src="${base}${p.cover}" alt="${esc(p.short)} screenshot" loading="lazy" decoding="async">` : ''}
             <span class="card__index">${String(i + 1).padStart(2, '0')}</span>
-            ${logoImg(p, base, 'card__logo')}
+            ${logoImg(p, base, p.cover ? 'card__logo card__logo--badge' : 'card__logo')}
             <span class="card__sector">${esc(p.sector)}</span>
           </div>
           <div class="card__body">
@@ -99,6 +100,7 @@ export function cases(projects, base) {
       <div class="case__grid">
         <section><h3><span>01</span>Context</h3><p>${esc(p.about)} <span class="muted">${esc(p.sector)} · ${esc(isTodo(p.country) ? '' : p.country)}</span></p></section>
         <section><h3><span>02</span>What I built</h3><ul>${clean(p.work).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+        ${(p.gallery || []).length ? `<section class="case__wide"><h3><span>00</span>In the product</h3><ul class="case__gallery">${p.gallery.map((g) => `<li><img src="${base}${g}" alt="${esc(p.short)} screen" loading="lazy" decoding="async"></li>`).join('')}</ul></section>` : ''}
         <section class="case__wide"><h3><span>03</span>Architecture</h3>${svg}</section>
         ${clean(p.metrics).length ? `<section><h3><span>04</span>Result</h3><ul class="case__metrics">${clean(p.metrics).map((m) => `<li>${esc(m)}</li>`).join('')}</ul></section>` : ''}
         <section><h3><span>05</span>Stack</h3><ul class="chips">${clean(p.stack).map((s) => `<li>${esc(s)}</li>`).join('')}</ul></section>

@@ -42,7 +42,7 @@ export function skills({ gsap, motion }) {
   box.classList.add('is-live');
   new ResizeObserver(size).observe(cv);
 
-  const palette = ['#7CF5FF', '#FFB547', '#34D399', '#A78BFA', '#FF8A7A', '#60A5FA'];
+  const palette = ['#FF8F66', '#D9A441', '#8FB3A9', '#C79BD0', '#F2EBDD', '#E2552D'];
   let css = getComputedStyle(document.documentElement);
   new MutationObserver(() => (css = getComputedStyle(document.documentElement))).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 

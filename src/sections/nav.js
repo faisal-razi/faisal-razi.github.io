@@ -35,7 +35,7 @@ export function nav({ gsap, motion, lenis }) {
   const sheet = document.querySelector('.theme-toggle .sheet');
   document.querySelector('.theme-toggle').addEventListener('click', () => {
     const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-    const apply = () => { root.dataset.theme = next; store.set('theme', next); document.querySelector('meta[name=theme-color]').content = next === 'light' ? '#F4F1EA' : '#0B1D33'; };
+    const apply = () => { root.dataset.theme = next; store.set('theme', next); document.querySelector('meta[name=theme-color]').content = next === 'light' ? '#F2EBDD' : '#14110F'; };
     if (!motion) return apply();
     gsap.timeline()
       .fromTo(sheet, { yPercent: 100, skewY: -12 }, { yPercent: 0, skewY: 0, duration: 0.35, ease: 'power3.in' })
