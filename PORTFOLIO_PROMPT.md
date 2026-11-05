@@ -175,10 +175,20 @@ An animated **map-style timeline**. A dotted flight path draws itself across a s
 A grid of certificates styled as **ink stamps** that thump onto the page with scale, rotation and a small shake as they enter:
 Google Analytics IQ (2019) · Google Cloud Seekho S2 (2020) · Google Cloud Essentials · Machine Learning, Coursera/UW · Digital Marketing, DigiSkills (2018) · WordPress Development, DigiSkills (2019) · E-Commerce Management, DigiSkills (2019) · Facebook SMBS (2018) · E-Rozgaar Technical Programme (2018).
 
+### 5.8.5 Client Voices: "Reviewed on Fiverr"
+Source: **https://www.fiverr.com/faisalrazi30**, with data in `src/data/reviews.json` (`rating`, `reviewCount`, `memberSince`, `reviews[]`).
+- **Do not scrape or embed Fiverr at runtime.** Fiverr blocks automated requests and cross-origin fetches, so reviews are copied by hand into the JSON. Skip any entry that has an `_example` key.
+- **Header strip:** a large animated star rating that fills star by star (`★ 5.0`), `reviewCount` reviews, `On Fiverr since {memberSince}`, a derived line such as `47 five-star reviews from clients in 16 countries` (computed from `reviews[]` at runtime), a small world-dot map that lights up each reviewer country, and a **"See all reviews on Fiverr ↗"** button linking to the profile (new tab, `rel="noopener"`). If `rating` or `reviewCount` is `null`, hide that number and keep the button.
+- **Review cards** styled as **pinned sticky notes on the blueprint board.** They are slightly rotated (±2°), and each has a pushpin that drops in with a bounce. Each card shows the stars, the quote, the client name, a country flag, the service and the date, plus a small "via Fiverr" label.
+- **Layout:** a draggable, momentum-scrolling carousel on desktop (GSAP Draggable + Inertia) and swipeable on mobile. `featured: true` reviews come first. The carousel autoplays slowly and pauses on hover or focus; under reduced motion it becomes a static grid.
+- **Data is filled in:** 5.0★ from 47 reviews, captured on 2026-11-05, with 12 marked `featured`. The carousel shows only featured reviews, and an "All 47 reviews" button opens a filterable masonry overlay (by country). Show `year`, not exact dates, because the dates are approximate.
+- **Truthfulness:** quote reviews exactly as written, with no edits or invented reviews. If `reviews[]` has no real entries, hide the cards and keep only the header strip and button.
+- If `rating` is filled in, also show a small **"★ {rating} on Fiverr"** pill among the hero badges (§5.2) and add `aggregateRating` to the JSON-LD (§9).
+
 ### 5.9 Contact: "Let's draft something."
 - A huge headline: **"Have a platform in mind? Let's draft it."** Each word draws in outline, then fills.
 - A two-column layout:
-  - **Left:** the email (click to copy), LinkedIn, Fiverr and GitHub links, each with a magnetic hover. A WhatsApp button is optional (see the privacy note).
+  - **Left:** the email (click to copy), LinkedIn, Fiverr (`https://www.fiverr.com/faisalrazi30`) and GitHub links, each with a magnetic hover. A WhatsApp button is optional (see the privacy note).
   - **Right:** a form styled as a **blueprint spec sheet**. Fields are labelled like drawing annotations (`FIELD A — Your name`). Submitting animates a paper plane folding up and flying off-screen, then shows `✓ Message delivered`.
 - Show local time in Pakistan, live (`It's 3:42 PM in Islamabad`), with a sun or moon icon.
 
@@ -216,52 +226,50 @@ Google Analytics IQ (2019) · Google Cloud Seekho S2 (2020) · Google Cloud Esse
 
 ---
 
-## 6. PROJECTS (fill this block in)
+## 6. PROJECTS & CLIENTS
 
-Keep all project data in **`src/data/projects.json`** so it can be edited without touching code. Use this schema:
+**Data is already in the repo. Do not hard-code it.**
+- `src/data/projects.json` lists 15 clients/projects, each with `id`, `title`, `short`, `url`, `logo`, `logoBg` (`"light"` or `"dark"`), `country`, `sector`, `about`, `category`, `role`, `year`, `stack`, `work[]`, `metrics[]`, `featured` and `todo`.
+- Logos are in `public/img/logos/`: trimmed and normalised to WebP at 160px tall, plus one SVG (`rj-cox.svg`). Reference them as `import.meta.env.BASE_URL + project.logo`.
+- Any field whose value starts with `"TODO"` must **not render**. Hide that line or chip. Never show placeholder text on the live site.
+- `logo: null` (Freedom From Chronic Pain) → render a typographic monogram tile (initials in Space Grotesk inside a blueprint frame) until the logo file is added.
 
-```json
-[
-  {
-    "id": "ahmi",
-    "title": "Australian Health & Management Institute — Moodle LMS",
-    "hook": "Government-compliant LMS that verifies every learner at enrolment.",
-    "category": ["Moodle/LMS"],
-    "role": "Technical Lead",
-    "year": "2019",
-    "stack": ["Moodle", "PHP", "USI API", "MySQL"],
-    "problem": "…",
-    "approach": "…",
-    "result": "…",
-    "metrics": ["Hundreds of enrolled professional learners"],
-    "links": { "live": "http://lms.ahmi.edu.au/", "repo": null },
-    "private": false,
-    "featured": true,
-    "cover": "img/projects/ahmi-cover.webp",
-    "gallery": ["img/projects/ahmi-1.webp"]
-  }
-]
-```
+### 6.1 How the projects are presented
 
-**My projects to list:**
+**A. Featured case studies** (`featured: true`: AHMI, Informa Connect, Theos Seminary, Sehatti)
+Use the horizontal pinned gallery and case-study modal from §5.4. Each card's "wireframe" state shows the client logo drawn as a dashed outline, which then fills with the real logo and the site preview. Show `metrics[]` as count-up chips. Use the card cover `img/projects/<id>-cover.webp` if it exists; otherwise generate a stylised blueprint cover from the logo and sector (no fake screenshots).
 
-```
-<<< PASTE YOUR PROJECT LIST HERE >>>
-(for each: name, 1–2 line description, your role, stack, year, live link / private, any numbers)
-```
+**B. "Trusted by" client wall** (all 15 entries, including the featured ones)
+A section titled **"Institutions I've built for"**, placed directly after the featured gallery:
+- **Two infinite marquee rows** of logos moving in opposite directions; they pause on hover or focus and are static under reduced motion.
+- **Visual consistency is mandatory:** every logo sits in an identical tile (same height of about 64px, same padding, same radius). By default, each logo is **recoloured to a single ink colour** with a CSS `mask-image` (the logo as mask over a `--muted` fill), so 15 different brands read as one calm wall. On hover or focus, the tile flips (3D Y-rotate) to reveal the **original full-colour logo** on a background matching `logoBg` (dark tile for `"dark"` logos such as Informa Connect and CGIA, which are white artwork).
+- Tapping or clicking a tile opens a compact **spec-card popover** (blueprint-annotated): name, country flag, sector, one-line `about`, role and stack when they are not TODO, and `Visit site ↗` (`rel="noopener"`, new tab).
+- Under the marquee, a **counter row**: `15 institutions · 5 countries · Australia · UK · France · USA · UAE` (derive the counts from the data at runtime, excluding TODO countries).
+- Filters (`All · Moodle/LMS · Full-stack · …`) apply to the wall as well, using GSAP Flip, built only from categories that are not TODO.
 
-*Candidates already known from the résumé and past work. Keep, edit or delete them:*
-- Australian Health & Management Institute — Moodle LMS + USI API integration
-- Informa Connect Australia — enterprise multi-cohort Moodle with SCORM and automated CPD certificates
-- ACPD — online learning and payment portal (Moodle + Laravel + Stripe)
-- SoleMole — mobile merchant hub (Yii2 REST/OAuth 2.0 API for iOS, Android and Windows clients; stolen-IMEI system)
-- Bizhere — on-demand service marketplace (WordPress + REST API)
-- Theos Seminary — self-service support block plugin (−40% ticket resolution time)
-- Moodle Stripe subscription / fixed-payment-plan plugin (Moodle 3.11 port)
-- Sehatti — corporate wellbeing platform (FastAPI, AWS, React Native, multilingual AI translation)
-- Doctor Portal — HealthTech practice platform (Vercel + Neon)
-- Restaurant POS extensions — Quick Bill, daily closing, costing and stock ledger
-- Sabzi Mandi — wholesale produce accounting app (migrated from MS Access/VB6 to PHP/MySQL)
+**C. Map tie-in:** in the Journey section (§5.5), small logo pins appear on the route map at each client's country when that stop is reached.
+
+### 6.2 The list (for reference; source of truth is `projects.json`)
+
+| # | Client | Site | Sector |
+|---|---|---|---|
+| 1 | Australian Health and Management Institute ★ | ahmi.edu.au | Vocational training, Sydney |
+| 2 | Informa Connect ★ | informaconnect.com | Professional events & CPD |
+| 3 | Theos Seminary ★ | student.theosseminary.com | Online seminary (Moodle) |
+| 4 | Sehatti ★ | sehatti.com | Wellbeing intelligence / HealthTech |
+| 5 | Freedom From Chronic Pain | lms.freedomfromchronicpain.com | Health education LMS |
+| 6 | CGIA Institute | cgiainstitute.org | Finance certification body |
+| 7 | Institute of Certified Chartered Economists | charteredeconomist.org | Economics certification body |
+| 8 | TeachMe Private Training Institute | teachmeteam.com | Private training institute |
+| 9 | Institut Brittany d'Enseignement Supérieur | ibesuni.fr | Higher education, France |
+| 10 | London Examinations Board | leb.education | Awarding body, UK |
+| 11 | Robert Cavelier University | rcu.education | Online MBA, USA |
+| 12 | Traingogy | traingogy.uk | Flexible online study, UK |
+| 13 | Magnus Recruitment | magnusrecruitment.com.au | Job board, Australia |
+| 14 | RJ Cox | rjcox.com.au | Equipment supplier, Australia |
+| 15 | Architects of Invention | architectsofinvention.com | Architecture & design practice |
+
+★ = featured case study.
 
 ---
 
@@ -278,7 +286,7 @@ Keep all project data in **`src/data/projects.json`** so it can be edited withou
 - **M.S. Computer Science, CGPA 3.87/4.00.**
 - Freelancing on Fiverr since **2020** for international clients.
 
-Do not invent clients, testimonials or numbers. If a section would need data that is not provided (such as testimonials), leave it out.
+Do not invent clients, testimonials or numbers. If a section would need data that is not provided, leave it out. The only testimonials are the real Fiverr reviews in `reviews.json` (§5.8.5).
 
 ---
 
@@ -300,7 +308,7 @@ Do not invent clients, testimonials or numbers. If a section would need data tha
 - `<title>Faisal Abbas Razi — Moodle Architect & PHP Lead</title>`
 - Meta description: *"Moodle architect and PHP lead with 7+ years building and scaling LMS platforms for institutions in Australia, the UK and Pakistan."*
 - Open Graph and Twitter cards with a **custom 1200×630 OG image** in the blueprint style (generated and committed to `public/og.png`).
-- JSON-LD `Person` schema (name, jobTitle, url, sameAs: LinkedIn, Fiverr, GitHub; alumniOf; knowsAbout).
+- JSON-LD `Person` schema (name, jobTitle, url, sameAs: LinkedIn, https://www.fiverr.com/faisalrazi30, GitHub; alumniOf; knowsAbout).
 - `sitemap.xml`, `robots.txt`, a canonical URL, and a favicon set (an SVG "FR" stamp plus a PNG fallback).
 
 ---
